@@ -1,6 +1,14 @@
 <div><%= link_to "投稿する", new_sound_path%></div>
 
-<div><%=@user.name%></div>
-<div><%=@user.introduction%></div>
+<%=@user.name%><br>
+<%=@user.introduction%><br>
 
-<%= link_to "編集", edit_user_path(@user.id) %>
+<%= link_to "編集", edit_user_path(@user.id) %><br>
+
+<% @sounds.each do |m| %>
+<%= m.artist %><br>
+<%= m.title %><br>
+<%= m.jenre %><br>
+<%= m.introduction %><br>
+<%= m.rate%>
+<% end %>
