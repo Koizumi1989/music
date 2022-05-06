@@ -1,0 +1,13 @@
+<%= form_with model: @sound, url:sounds_path, method: :post, local:true do |f| %>
+<p><%= "artist"%></p>
+<%= f.text_field :artist %>
+<p><%= "title"%></p>
+<%= f.text_field :title %>
+<p><%= "jenre"%></p>
+<%= f.text_field :jenre %>
+<p><%= "introduction"%></p>
+<%= f.text_area :introduction %>
+<p><%= "rate"%></p>
+<%= f.text_field :rate %>
+<%= f.submit "新規登録" %>
+<% end %>
