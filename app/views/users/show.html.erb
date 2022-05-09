@@ -3,12 +3,13 @@
 <%=@user.name%><br>
 <%=@user.introduction%><br>
 
-<%= link_to "編集", edit_user_path(@user.id) %><br>
+<%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success"%><br>
 
 <% @sounds.each do |m| %>
 <%= m.artist %><br>
 <%= m.title %><br>
 <%= m.jenre %><br>
 <%= m.introduction %><br>
-<%= m.rate%>
+<%= m.rate%><br>
+<%= link_to "詳細", sound_path(m.id), class: "btn btn-sm btn-success"%><br>
 <% end %>
