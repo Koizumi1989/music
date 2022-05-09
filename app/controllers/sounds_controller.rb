@@ -9,6 +9,7 @@ class SoundsController < ApplicationController
   end
 
   def show
+    @sound = Sound.find(params[:id])
   end
 
   def create
