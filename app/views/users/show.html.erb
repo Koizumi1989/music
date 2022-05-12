@@ -1,15 +1,53 @@
-<div><%= link_to "投稿する", new_sound_path%></div>
+<div class="container">
+  <div class="row d-flex justify-content-center pt-2"><%= link_to "投稿する", new_sound_path, class: "btn btn-outline-primary btn-lg btn-block" %></div>
+  <br>
+    <h2 class="exhibition" style="display:inline">会員情報</h2>
+  <br><br>
+    <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th><i class="fas fa-image"></i> 画像</th>
+          <th><i class="fas fa-user"></i> 名前</th>
+          <th><i class="fas fa-address-card"></i> 紹介</th>
+          <th><i class="fas fa-bookmark"></i> お気に入り数</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.introduction %></td>
+        <td></td>
+        <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<%=@user.name%><br>
-<%=@user.introduction%><br>
+  <h2 class="exhibition" style="color: #0387b4; display:inline">投稿名盤一覧</h2>
 
-<%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success"%><br>
-
-<% @sounds.each do |m| %>
-<%= m.artist %><br>
-<%= m.title %><br>
-<%= m.jenre %><br>
-<%= m.introduction %><br>
-<%= m.rate%><br>
-<%= link_to "詳細", sound_path(m.id), class: "btn btn-sm btn-success"%><br>
-<% end %>
+   <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th></th>
+          <th><i class="fas fa-users"></i> アーティスト</th>
+          <th><i class="fas fa-compact-disc"></i> タイトル</th>
+          <th><i class="fas fa-music"></i> ジャンル</th>
+          <th><i class="far fa-thumbs-up"></i> 評価</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @sounds.each do |m| %>
+        <tr>
+          <td></td>
+          <td><%= m.artist %></td>
+          <td><%= m.title%></td>
+          <td><%= m.jenre %></td>
+          <td><%= m.introduction %></td>
+          <td><%= m.rate %></td>
+          <td><%= link_to "詳細", sound_path(m.id), class: "btn btn-sm btn-success"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
