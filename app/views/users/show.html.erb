@@ -34,6 +34,7 @@
           <th><i class="fas fa-compact-disc"></i> タイトル</th>
           <th><i class="fas fa-music"></i> ジャンル</th>
           <th><i class="far fa-thumbs-up"></i> 評価</th>
+          <th></th>
         </tr>
       </thead>
     <tbody>
@@ -43,7 +44,6 @@
           <td><%= m.artist %></td>
           <td><%= m.title%></td>
           <td><%= m.jenre %></td>
-          <td><%= m.introduction %></td>
           <td><%= m.rate %></td>
           <td><%= link_to "詳細", sound_path(m.id), class: "btn btn-sm btn-success"%></td>
         </tr>
