@@ -15,7 +15,7 @@
       </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><%= image_tag @user.get_image, size: "50x50" ,class: "rounded-circle" %></td>
         <td><%= @user.name %></td>
         <td><%= @user.introduction %></td>
         <td></td>
@@ -40,7 +40,7 @@
     <tbody>
       <% @sounds.each do |m| %>
         <tr>
-          <td></td>
+          <td><%= image_tag m.get_image, size: "50x50" ,class: "rounded-circle" %></td>
           <td><%= m.artist %></td>
           <td><%= m.title%></td>
           <td><%= m.jenre %></td>
