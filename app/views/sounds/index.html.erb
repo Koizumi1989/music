@@ -1,8 +1,33 @@
-<% @sounds.each do |u|%>
-<%= u.artist %><br>
-<%= u.title %><br>
-<%= u.jenre %><br>
-<%= u.introduction %><br>
-<%= u.rate %><br>
-<%= link_to "詳細", sound_path(u.id), class: "btn btn-sm btn-success"%><br>
-<% end %>
+<div class="container">
+  <h2 class="exhibition"style="display:inline">名盤一覧</h2>
+
+  <table class='table'>
+    <thead class="bg-light text-dark">
+      <tr>
+        <th><i class="fas fa-user"></i> 投稿者</th>
+        <th><i class="fas fa-users"></i> アーティスト</th>
+        <th><i class="fas fa-compact-disc"></i> タイトル</th>
+        <th><i class="fas fa-music"></i> ジャンル</th>
+        <th><i class="far fa-thumbs-up"></i> 評価</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sounds.each do |m| %>
+        <tr>
+          <td>
+            <%= image_tag m.user.get_image, size: "50x50" %><br>
+            <%= m.user.name %>
+          </td>
+          <td><%= m.artist %></td>
+          <td><%= m.title%></td>
+          <td><%= m.jenre %></td>
+          <td><%= m.introduction %></td>
+          <td><%= m.rate %></td>
+          <td><%= link_to "詳細", sound_path(m.id), class: "btn btn-sm btn-success"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
