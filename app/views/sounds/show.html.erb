@@ -1,7 +1,35 @@
-<next>
-<%= @sound.user.name%><br>
-<%= @sound.created_at.strftime('%Y/%m/%d %H:%M')%><br>
-<%= @sound.artist%><br>
-<%= @sound.title%><br>
-<%= @sound.jenre%><br>
-<%= @sound.introduction%><br>
+<h2 class="exhibition">名盤紹介</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="card mx-auto" style="width: 30rem;">
+  <div class="bd-placeholder-img card-img-top text-center">
+    <%= image_tag 'record.jpg', size: '478x478'%>
+  </div>
+
+  <div class="card-body">
+    <p><i class="fas fa-user"></i> 投稿者：<%= @sound.user.name %></p>
+    <p><i class="fas fa-clock"></i> 投稿日時：<%= @sound.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+    <p><i class="fas fa-users"></i> アーティスト：<%= @sound.artist %></p>
+    <p><i class="fas fa-compact-disc"></i> タイトル：<%= @sound.title%></p>
+    <p><i class="fas fa-music"></i> ジャンル：<%= @sound.jenre %></p>
+    <p><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明：<%= @sound.introduction %></p>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <i class="far fa-thumbs-up"></i> 評価：<%= @sound.rate%>
+    </li>
+  </ul>
+
+  <div class="card-body">
+    <% if current_user.id == @sound.user_id %>
+      <span><%= link_to '編集', edit_sound_path(@sound), class: "btn btn-sm btn-success" %></span>
+      <span><%= link_to '消去', @sound, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></span>
+    <% end %>
+  </div>
+
+
+</div>
+  </div>
+</div>
